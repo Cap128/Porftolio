@@ -1,44 +1,184 @@
-.App-header {
-  background-color: var(--white);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  box-sizing: border-box;
+/* Tipografías */
+body {
+  font-family: 'clash', sans-serif;
+  background-color: black;
+  color: white;
 }
 
-.header-left {
+.header {
+  display: flex;
+  background-color: black;
+  border: 2px solid red;
+}
+
+.left-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  border: 2px solid var(--red);
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.header-row {
   flex: 1;
-  border: 2px solid var(--red);
-  margin-bottom: 10px;
 }
 
-.header-row:last-child {
-  margin-bottom: 0;
-}
-
-.header-right {
+.left-row {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: 2px solid var(--red);
+
+  justify-content: end;
   padding: 10px;
-  box-sizing: border-box;
+  border: 2px solid white;
+  cursor: pointer;
 }
 
-.header-image {
-  max-width: 100%;
+.left-row img {
+  width: 50px;
   height: auto;
 }
 
+.right-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  display: flex;
+}
+
+.left-column-body {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+}
+
+.left-main-row {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-sub-row {
+  padding: 5px;
+}
+
+.bordered {
+  border: 2px solid red;
+}
+
+.small-text {
+  font-size: 10px;
+}
+
+.medium-text {
+  font-size: 12px;
+}
+
+.large-text {
+  font-size: 16px;
+}
+
+.right-column-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-row {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid red;
+}
+
+.large-text {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.medium-text {
+  font-size: 18px;
+}
+
+.footer {
+ 
+    display: flex;
+    justify-content: end;
+    background-color: rgb(255, 255, 255); 
+    color: red; 
+    border: 2px solid red;
+    padding: 10px;
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+
+  }
+
+.footer-left, .footer-right {
+  flex: 1;
+  display: flex;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 0px 0;
+}
+
+.footer-item img {
+  width: 50px;
+  height: 50px;
+}
+
+.footer-right img {
+  width: 100%;
+  height: auto;
+}
+
+.contact-box {
+  padding: 10px;
+  background-color: #2cff00;
+  color: black;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  border: 3px solid white;
+  margin-top: -1px;
+}
+
+.services-column {
+  display:flex;
+
+}
+.services-row {
+  flex: 1 1 50%;
+  background-color: rgb(255, 255, 255); 
+    color: red; 
+    border: 2px solid red;
+    padding: 10px;
+    width: auto;
+    height: auto;
+}
+.service-image {
+  width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block; /* Asegura que la imagen esté debajo del texto */
+}
+
+.footer-right {
+  display: flex; /* Permite que el contenido se alinee correctamente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+.footer-gif {
+  max-width: 100%; /* Hace que el GIF no exceda el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción del GIF */
+  margin: 10px; /* Espaciado alrededor del GIF */
+}

@@ -5,20 +5,21 @@
       <div class="left-column">
         <div class="left-row custom-cursor" @click="$router.push('/gallery')">
           <img src="@/assets/1.svg" alt="1.svg" style="margin: 10px;">
-          <span class="red-text">GALERY</span> <!-- Texto en rojo -->
+          <span class="red-text">GALERY</span> 
         </div>
-        <div class="left-row">
+        <div class="left-row custom-cursor" @click="$router.push('/curriculum')">
           <img src="@/assets/2.svg" alt="2.svg" style="margin: 10px;">
           <a class="custom-cursor red-text" href="https://drive.google.com/file/d/1quR4mwg5vM4iqFhIfeamTP1KUKhbxbsi/view?usp=sharing" target="_blank">
             CURRICULUM
           </a> 
         </div>
-        <div class="left-row">
+        <div class="left-row custom-cursor" @click="$router.push('/CONTACT')">
           <img src="@/assets/3.svg" alt="3.svg" style="margin: 10px;">
-           <a class="custom-cursor red-text" ></a><span class="red-text">CONTACT</span> <!-- Texto en rojo -->
+           <a class="custom-cursor red-text" ></a><span class="red-text">CONTACT</span> 
         </div>
       </div>
       <div class="right-column">
+        
         <img src="@/assets/logo1.svg" alt="IDVISUAL" style="margin: 10px;">
       </div>
     </div>
@@ -55,24 +56,25 @@
    <!-- Sección de servicios -->
 <div class="services-section">
   <div class="services-column">
-    <div class="services-row">
-      <span style="color: var(--red);">DISEÑO DE INFORMACIÓN</span>
-      <img src="@/assets/editorial.svg" alt="DISEÑO DE INFORMACION" class="service-image">
+    <div class="services-row" @click="$router.push('/DISENODEINFORMACION')">
+      <span style="color: var(--red); font-family: cinder;font-size:200px ; transform: rotate(90deg) ;  position: absolute;">EDITORIAL</span>
+      <img src="@/assets/editorial.jpg" alt="DISEÑO DE INFORMACION" class="service-image">
+      <!--div class="info-image"></div -->
     </div>
-    <div class="services-row">
-      <span style="color: var(--red);">PROGRAMACIÓN</span>
-      <img src="@/assets/programacion.svg" alt="PROGRAMACIÓN" class="service-image">
+    <div class="services-row" @click="$router.push('/Programacion')">
+      <span style="color: var(--lila); font-family: cinder;font-size:200px ; position: absolute;">PROGRAMACIÓN</span>
+      <img src="@/assets/marca.jpg" alt="PROGRAMACIÓN" class="service-image">
     </div>
   </div>
 
   <div class="services-column">
-    <div class="services-row">
-      <span style="color: var(--red);">CARTELES</span>
-      <img src="@/assets/carteles.svg" alt="CARTELES" class="service-image">
+    <div class="services-row" @click="$router.push('/Posters')">
+      <span style="color: var(--red); font-family: cinder;font-size:200px ; position: absolute;">PÓSTERS</span>
+      <img src="@/assets/cartel.png" alt="PÓSTERS" class="service-image">
     </div>
-    <div class="services-row">
-      <span style="color: var(--red);">WEB</span>
-      <img src="@/assets/web.svg" alt="Web" class="service-image">
+    <div class="services-row" @click="$router.push('/Web')">
+      <span style="color: var(--red); font-family: cinder;font-size:200px ; transform: rotate(-90deg) ; position: absolute; left: 30px ; ">WEB</span>
+      <img src="@/assets/Pag Web.png" alt="Web" class="service-image">
     </div>
   </div>
 </div>
@@ -106,6 +108,7 @@
 
     <div class="footer-right">
       <img src="@/assets/1.gif" alt="GIF" style="margin: 10px;">
+      
     </div>
   </div>
 </template>

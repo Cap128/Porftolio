@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 100vh;">
     <!-- Encabezado -->
     <div class="header">
       <div class="left-column">
@@ -23,7 +23,7 @@
         <img src="@/assets/logo1.svg" alt="IDVISUAL" style="margin: 10px;">
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 
     <!-- Cuerpo -->
     <div class="body">
@@ -55,28 +55,52 @@
 
    <!-- Sección de servicios -->
 <div class="services-section">
-  <div class="services-column">
-    <div class="services-row" @click="$router.push('/DISENODEINFORMACION')">
-      <span style="color: var(--red); font-family: cinder;font-size:200px ; transform: rotate(90deg) ;  position: absolute;">EDITORIAL</span>
+  <!-- <div class="services-column"> -->
+    <div ref="editorialItemRef" class="services-item" @click="$router.push('/DISENODEINFORMACION')">
+      <p
+        class="services-text s-item-top-left"
+        style="transform: rotate(90deg);"
+        :style="{ transform: editorialScroll >= 0 ? 'none' : `translateY(${editorialScroll}px)`}"
+      >EDITORIAL</p>
       <img src="@/assets/editorial.jpg" alt="DISEÑO DE INFORMACION" class="service-image">
       <!--div class="info-image"></div -->
     </div>
-    <div class="services-row" @click="$router.push('/Programacion')">
-      <span style="color: var(--lila); font-family: cinder;font-size:200px ; position: absolute;">PROGRAMACIÓN</span>
+    <div
+      ref="progItemRef"
+      class="services-item"
+      style="justify-content: start;"
+      @click="$router.push('/Programacion')"
+    >
       <img src="@/assets/marca.jpg" alt="PROGRAMACIÓN" class="service-image">
+      <p
+        class="services-text s-item-top-right"
+        :style="{ transform: progScroll <= 0 ? 'none' : `translateX(${progScroll}px)` }"
+      >PROGRAMACIÓN</p>
     </div>
-  </div>
+  <!-- </div> -->
 
-  <div class="services-column">
-    <div class="services-row" @click="$router.push('/Posters')">
-      <span style="color: var(--red); font-family: cinder;font-size:200px ; position: absolute;">PÓSTERS</span>
+  <!-- <div class="services-column"> -->
+    <div ref="posterItemRef" class="services-item" @click="$router.push('/Posters')">
+      <p
+        class="services-text s-item-bottom-left"
+        :style="{ transform: posterScroll >= 0 ? 'none' : `translateX(${posterScroll}px)` }"
+      >PÓSTERS</p>
       <img src="@/assets/cartel.png" alt="PÓSTERS" class="service-image">
     </div>
-    <div class="services-row" @click="$router.push('/Web')">
-      <span style="color: var(--red); font-family: cinder;font-size:200px ; transform: rotate(-90deg) ; position: absolute; left: 30px ; ">WEB</span>
+    <div
+      ref="webItemRef"
+      class="services-item"
+      @click="$router.push('/Web')"
+      style="justify-content: start;"
+    >
+      <p
+        style="transform: rotate(-90deg);" 
+        class="services-text s-item-bottom-rigth"
+        :style="{ transform: webScroll <= 0 ? 'none' : `translateY(${webScroll}px)` }"
+      >WEB</p>
       <img src="@/assets/Pag Web.png" alt="Web" class="service-image">
     </div>
-  </div>
+  <!-- </div> -->
 </div>
     <!-- Texto con movimiento -->
     <div class="contact-box">
@@ -111,4 +135,41 @@
       
     </div>
   </div>
+  </div>
 </template>
+<script setup>
+import { ref } from 'vue'
+
+const editorialItemRef = ref()
+const editorialScroll = ref(0)
+
+const progItemRef = ref()
+const progScroll = ref(0)
+
+const posterItemRef = ref()
+const posterScroll = ref(0)
+
+const webItemRef = ref()
+const webScroll = ref(0)
+
+const gridVisible = () => !!editorialItemRef.value && !!progItemRef.value && !!posterItemRef.value && webItemRef.value
+
+const handleScroll = () => {
+  if (!gridVisible()) return
+
+  const editorialRect = editorialItemRef.value.getBoundingClientRect()
+  editorialScroll.value = editorialRect.height - editorialRect.top
+
+  const progRect = progItemRef.value.getBoundingClientRect()
+  progScroll.value = progRect.top - progRect.height
+
+  const posterRect = posterItemRef.value.getBoundingClientRect()
+  posterScroll.value = posterRect.height - posterRect.top
+
+  const webRect = webItemRef.value.getBoundingClientRect()
+  webScroll.value = webRect.top - webRect.height
+
+}
+
+window.addEventListener('scroll', handleScroll)
+</script>
